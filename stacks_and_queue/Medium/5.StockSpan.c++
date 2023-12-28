@@ -59,8 +59,6 @@ int main()
         }
         cout << endl;
     }
-    cout << "Press Enter to continue...";
-    cin.get(); // Wait for user input
 
     return 0;
 }
