@@ -57,7 +57,7 @@ public:
         }
 
         long long int maxm = area[0];
-        for (long long i = 1; i < n; i++)
+        for (long long int i = 1; i < n; i++)
         {
             if (area[i] > maxm)
                 maxm = area[i];
