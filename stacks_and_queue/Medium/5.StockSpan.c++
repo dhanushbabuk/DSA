@@ -35,30 +35,32 @@ public:
     }
 };
 
-//{ Driver Code Starts.
+// 2.code
 
-int main()
+// code without pairs that is with direct index
+
+vector<int> findStockSpans(vector<int> &prices)
 {
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        int i, a[n];
-        for (i = 0; i < n; i++)
-        {
-            cin >> a[i];
-        }
-        Solution obj;
-        vector<int> s = obj.calculateSpan(a, n);
+    // Write your code here.
+    int n = prices.size();
 
-        for (i = 0; i < n; i++)
-        {
-            cout << s[i] << " ";
-        }
-        cout << endl;
+    vector<int> v(n);
+
+    stack<int> s;
+
+    for (int i = 0; i < n; i++)
+    {
+
+        while (!s.empty() && prices[s.top()] < prices[i])
+            s.pop();
+
+        if (s.size())
+            v[i] = i - s.top();
+        else
+            v[i] = i + 1;
+
+        s.push(i);
     }
 
-    return 0;
+    return v;
 }
