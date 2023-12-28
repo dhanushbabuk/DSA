@@ -13,7 +13,7 @@ public:
         // Your code here
         for (int i = 0; i < n; i++)
         {
-            while (!s.empty() && s.top().first <= price[i])
+            while (!s.empty() && s.top().first < price[i])
                 s.pop();
 
             if (s.empty())
@@ -54,10 +54,10 @@ vector<int> findStockSpans(vector<int> &prices)
         while (!s.empty() && prices[s.top()] < prices[i])
             s.pop();
 
-        if (s.size())
-            v[i] = i - s.top();
+        if (s.empty())
+            v[i] = i + 1; // no NGL available i.e, -1
         else
-            v[i] = i + 1;
+            v[i] = i - s.top();
 
         s.push(i);
     }
