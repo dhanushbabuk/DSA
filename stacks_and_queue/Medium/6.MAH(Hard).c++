@@ -1,22 +1,16 @@
-//{ Driver Code Starts
 #include <bits/stdc++.h>
-using namespace std;
-
-// } Driver Code Ends
-
-// Your code here
 class Solution
 {
 public:
-    // Function to find largest rectangular area possible in a given histogram.
-    long long getMaxArea(long long arr[], int n)
+    int largestRectangleArea(vector<int> &arr)
     {
-        vector<long long int> left(n);
-        vector<long long int> right(n);
+        int n = arr.size();
+        vector<int> left(n);
+        vector<int> right(n);
 
-        stack<long long int> s;
+        stack<int> s;
 
-        for (long long int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             while (!s.empty() && arr[s.top()] >= arr[i])
                 s.pop();
@@ -35,7 +29,7 @@ public:
         }
 
         // nsr
-        for (long long int i = n - 1; i >= 0; i--)
+        for (int i = n - 1; i >= 0; i--)
         {
             while (!s.empty() && arr[s.top()] >= arr[i])
                 s.pop();
@@ -48,22 +42,14 @@ public:
             s.push(i);
         }
 
-        vector<long long int> width(n), area(n);
-
-        for (long long i = 0; i < n; i++)
+        vector<int> width(n), area(n);
+        int maxm = 0;
+        for (int i = 0; i < n; i++)
         {
             width[i] = left[i] + right[i] - 1;
             area[i] = width[i] * arr[i];
+            maxm = max(area[i], maxm);
         }
-
-        long long int maxm = area[0];
-        for (long long int i = 1; i < n; i++)
-        {
-            if (area[i] > maxm)
-                maxm = area[i];
-        }
-        // or
-        //   long long int maxm = *max_element(area.begin(), area.end());
 
         return maxm;
     }
