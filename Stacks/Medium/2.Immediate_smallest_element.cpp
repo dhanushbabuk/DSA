@@ -6,7 +6,7 @@ using namespace std;
 vector<int> nextSmaller(vector<int> &Arr, int N)
 {
     vector<int> result(N, -1); // Initialize result vector with -1
-// BRUTE FROCE METHOD
+                               // BRUTE FROCE METHOD
     for (int i = 0; i < N - 1; i++)
     {
         if (Arr[i] > Arr[i + 1])

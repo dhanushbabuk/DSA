@@ -29,54 +29,55 @@
 
 class Stack
 {
-    //Write your code here
-  Node *head;
-  int sz;
+    // Write your code here
+    Node *head;
+    int sz;
 
 public:
     Stack()
     {
-        //Write your code here
-    head=nullptr;
-        sz=0;
+        // Write your code here
+        head = nullptr;
+        sz = 0;
     }
 
     int getSize()
     {
-        //Write your code here
+        // Write your code here
         return sz;
     }
 
     bool isEmpty()
     {
-        //Write your code here
-        return (head==nullptr);
+        // Write your code here
+        return (head == nullptr);
     }
 
     void push(int data)
     {
-        //Write your code here
+        // Write your code here
         Node *temp = new Node(data);
-        temp->next=head;
-        head=temp;
+        temp->next = head;
+        head = temp;
         sz++;
     }
 
     void pop()
     {
-        //Write your code here
-        if (!isEmpty()) {
+        // Write your code here
+        if (!isEmpty())
+        {
 
-          head = head->next;
-          sz--;
+            head = head->next;
+            sz--;
         }
     }
 
     int getTop()
     {
-        //Write your code here
-        if(isEmpty())
-        return -1;
+        // Write your code here
+        if (isEmpty())
+            return -1;
 
         return (head->data);
     }
