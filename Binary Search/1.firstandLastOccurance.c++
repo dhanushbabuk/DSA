@@ -6,6 +6,8 @@ class Solution
 public:
     vector<int> searchRange(vector<int> &nums, int target)
     {
+        // initialization with pair
+        //   pair<int, int> v = {-1, -1};
         vector<int> v(2, -1);
         int left = 0;
         int right = nums.size() - 1;
