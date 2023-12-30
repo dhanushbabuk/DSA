@@ -50,7 +50,6 @@ int count(vector<int> &nums, int n, int target)
 
     if (firstOccurrence == -1 || lastOccurrence == -1)
     {
-        // Target element not found in the array
         return 0;
     }
     else
