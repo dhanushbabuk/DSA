@@ -12,9 +12,9 @@ public:
 
         while (start <= end)
         {
-
+            //  Handling the base case when the array is not rotated
             if (nums[start] < nums[end])
-                return nums[start];
+                return nums[start]; // return the first element
 
             int mid = start + (end - start) / 2;
             int next = (mid + 1) % n;
